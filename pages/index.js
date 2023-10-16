@@ -6,134 +6,188 @@ import MyV0Component from './myV0Component'
 import TestComponent from './testComponent'
 
 
-// import { Layout } from '@vercel/examples-ui'
+/**
+ * v0 by Vercel.
+ * @see https://v0.dev/t/N5nP7VbEoDL
+ */
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
-// Forward properties from `middleware.ts`
-// When support for configuring gSSP to use Edge Functions lands,
-// We could add that logic here directly.
-export const getServerSideProps = ({ query }) => ({
-  props: query,
-})
-
-export default function Index({
-  name,
-  // languages,
-  city,
-  region,
-  country,
-  cityNickname,
-  // currencyCode,
-  // currencySymbol,
-}) {
-  name = decodeURIComponent(name) || undefined
-  city = decodeURIComponent(city) || undefined
-  country = decodeURIComponent(country) || undefined
-  cityNickname = decodeURIComponent(cityNickname) || undefined
-  let cityWiki = "https://en.wikipedia.org/wiki/"+city+", "+region
+export default function Component() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-50">
-      <div>
-        {true === false ? (
-          <div>
-            <p>Debug:</p>
-            <p>City: ${city} ${typeof(city)}</p>
-            <p>Region: ${region} ${typeof(region)}</p>
-            <p>Country: ${country} ${typeof(country)}</p>
-            <p>City Nickname: ${cityNickname} ${typeof(cityNickname)}</p>
-          </div>
-          ) : null}
-      </div>
-      <div className="fixed inset-0 overflow-hidden opacity-75 bg-[#f8fafb]">
-        <Image alt="World Map" src={map} fill={true} quality={100} />
-      </div>
-      <main className="flex flex-col items-center flex-1 px-4 sm:px-20 text-center z-10 pt-8 sm:pt-20">
-        <h1 className="text-3xl sm:text-5xl pb-10 font-bold">Welcome!</h1>
-        
-        <MyV0Component />
-
-        {city!=='undefined' ? (
-          <p className="pt-12 text-xl">You're in beautiful {city}, {region}!</p>
-        ) : (
-          <div>
-            <p className="mt-4 pt-10 text-lg sm:text-xl text-gray-700">
-              We'd love to tailor our content to your location, but we haven't set up Edge Middleware yet.
-            </p> 
-            <p className="mt-4 pt-2 text-lg sm:text-xl text-gray-700">
-              <a className="underline text-blue-600" href="https://github.com/dddiggory/ae-cert-next" target="_blank">Help us out?</a>
-            </p>
-          </div>
-        )}
-
-        {city!=='undefined' && cityNickname!=='undefined' ? (
-          <div>
-            <p className="text-xl pb-4">Also known as {cityNickname}.</p>
-            <p>Learn more about {city} <a className="underline text-blue-600" href={cityWiki}>here.</a></p>
-            <p>Want a different {city} nickname? <a href="" className="underline text-blue-600">Refresh the page</a> and Middleware will do the rest.</p>
+    <div className="flex flex-col min-h-screen bg-[#fffaf4] text-gray-900 dark:bg-[#1a202c] dark:text-white">
+      <header className="container mx-auto px-4 py-6 flex items-center justify-between">
+        <h1 className="text-2xl font-bold">Vercel</h1>
+        <nav>
+          <ul className="flex space-x-4">
+            <li>
+              <Link href="#">Home</Link>
+            </li>
+            <li>
+              <Link href="#">Features</Link>
+            </li>
+            <li>
+              <Link href="#">Pricing</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main className="flex-grow">
+        <section className="container mx-auto px-4 py-20 text-center">
+          <h2 className="text-5xl font-bold mb-4">Welcome to Vercel</h2>
+          <p className="text-xl mb-8">
+            Deploy web projects with the best frontend developer experience and highest end-user performance.
+          </p>
+          <Button className="px-6 py-3 bg-[#333] text-white rounded-md">Get Started</Button>
+        </section>
+        <section className="container mx-auto px-4 py-20 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex space-x-4">
+            <svg
+              className=" h-6 w-6 text-[#333]"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <div>
+              <h3 className="text-2xl font-bold mb-2">Feature 1</h3>
+              <p className="text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-        ) : (
-          <p></p>
-        )}
-        
-        {city!=='undefined' && cityNickname==='undefined' ? (
-          <div>
-          <p>I don't know of a nickname for {city}, but I'm sure it's a lovely place.</p>
-          <p>Learn more about {city} <a className="underline text-blue-600" href={cityWiki}>here.</a></p>
           </div>
-        ) : (
-          <p></p>
-        )}
-    
-
-        
-        {country!=='undefined' ? (
-          <section className="border border-gray-300 bg-white rounded-lg shadow-lg mt-16 w-full hover:shadow-2xl transition">
-          <div className="p-4 flex justify-center items-between border-b">
-            <div className="self-center">
-              <Image
-                alt={`${country} flag`}
-                className="rounded-full"
-                src={`https://flagcdn.com/96x72/${country.toLowerCase()}.png`}
-                // src={`https://flagcdn.com/${country.toLowerCase()}.svg`}
-                width={32}
-                height={32}
-              />
+          <div className="flex space-x-4">
+            <svg
+              className=" h-6 w-6 text-[#333]"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <div>
+              <h3 className="text-2xl font-bold mb-2">Feature 2</h3>
+              <p className="text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-            <div className="ml-4 mr-auto text-left">
-              {/* <h4 className="font-semibold">{name}</h4> */}
-              <h5 className="text-gray-700">{city}</h5>
-            </div>
-            <p className="self-center text-gray-700">{country}</p>
           </div>
-          {/* <div className="p-4 flex justify-center items-between border-b bg-gray-50">
-            <h4 className="font-semibold text-left mr-auto">Currency</h4>
-            <p className="text-gray-700">{`${currencyCode} ${currencySymbol}`}</p>
-          </div> */}
-          <div className="p-4 flexborder-b bg-gray-50 rounded-b-lg">
-            <h4 className="font-semibold text-left">Geolocation Headers</h4>
-            <pre className="bg-black text-white font-mono text-left py-2 px-4 rounded-lg mt-4 text-sm leading-6">
-              <p>
-                <strong>{'x-vercel-ip-city: '}</strong>
-                {city}
-              </p>
-              <p>
-                <strong>{'x-vercel-ip-country-region: '}</strong>
-                {region}
-              </p>
-              <p>
-                <strong>{'x-vercel-ip-country: '}</strong>
-                {country}
-              </p>
-            </pre>
+          <div className="flex space-x-4">
+            <svg
+              className=" h-6 w-6 text-[#333]"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <div>
+              <h3 className="text-2xl font-bold mb-2">Feature 3</h3>
+              <p className="text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
           </div>
         </section>
-        ) : <div></div>}
-        
-        
-        
-       
+        <section className="container mx-auto px-4 py-20 grid gap-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="border border-[#ddd] rounded-md p-8 text-center">
+            <h3 className="text-2xl font-bold mb-4">Basic</h3>
+            <p className="text-4xl font-bold mb-8">$0</p>
+            <Button className="px-6 py-3 bg-[#333] text-white rounded-md">Select Plan</Button>
+          </div>
+          <div className="border border-[#ddd] rounded-md p-8 text-center">
+            <h3 className="text-2xl font-bold mb-4">Pro</h3>
+            <p className="text-4xl font-bold mb-8">$20</p>
+            <Button className="px-6 py-3 bg-[#333] text-white rounded-md">Select Plan</Button>
+          </div>
+          <div className="border border-[#ddd] rounded-md p-8 text-center">
+            <h3 className="text-2xl font-bold mb-4">Enterprise</h3>
+            <p className="text-4xl font-bold mb-8">$100</p>
+            <Button className="px-6 py-3 bg-[#333] text-white rounded-md">Select Plan</Button>
+          </div>
+        </section>
       </main>
+      <footer className="bg-[#333] text-white py-12">
+        <div className="container mx-auto px-4 text-center">
+          <ul className="flex justify-center space-x-4 mb-8">
+            <li>
+              <Link href="#">
+                <svg
+                  className=" h-6 w-6"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                </svg>
+              </Link>
+            </li>
+            <li>
+              <Link href="#">
+                <svg
+                  className=" h-6 w-6"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </Link>
+            </li>
+            <li>
+              <Link href="#">
+                <svg
+                  className=" h-6 w-6"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect height="20" rx="5" ry="5" width="20" x="2" y="2" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </Link>
+            </li>
+          </ul>
+          <p className="text-sm">© 2023 Vercel Inc. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   )
 }
-
-// Index.Layout = Layout
+A
