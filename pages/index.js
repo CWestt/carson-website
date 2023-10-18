@@ -13,7 +13,7 @@ export default function Component() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 to-gray-700 text-gray-50">
       <section className="w-full px-8 py-16 text-center">
-        <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
+                <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500">
           Developer Problems
         </h1>
         <p className="text-lg mb-8">
