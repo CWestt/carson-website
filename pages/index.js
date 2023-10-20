@@ -35,6 +35,7 @@ export default function Component() {
           </h3>
           <p className="text-gray-400 group-hover:block hidden">
             "I understand - rarely do we have conversations that immediately lead to purchasing, typically it takes numerous conversations - might be beneficial to start the convo now to see if it even makes sense to evaluate when budget opens"
+          </p>
         </div>
         <div className="group bg-gray-800 rounded-lg shadow-md p-6 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
           <h3 className="text-xl font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
